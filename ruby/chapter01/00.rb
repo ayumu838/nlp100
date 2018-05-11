@@ -1,3 +1,3 @@
-str = "stressed"
+str = 'stressed'
 
 puts str.reverse

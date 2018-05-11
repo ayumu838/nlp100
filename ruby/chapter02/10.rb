@@ -1,1 +1,1 @@
-p File.open("hightemp.txt","r").count
+p File.open('hightemp.txt', 'r').count

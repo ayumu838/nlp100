@@ -1,3 +1,3 @@
-str = "パタトクカシーー"
+str = 'パタトクカシーー'
 
-str.length.times{|i| print str[i] if i.even?}
+str.length.times { |i| print str[i] if i.even? }
