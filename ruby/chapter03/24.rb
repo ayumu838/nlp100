@@ -1,20 +1,17 @@
 require 'json'
 
 jsons = []
-File.open("jawiki-country.json") { |f|
-  f.each_line { |line|
-      jsons << JSON.load(line)
-  }
-}
+File.open('jawiki-country.json') do |f|
+  f.each_line do |line|
+    jsons << JSON.load(line)
+  end
+end
 
-jsons.each { |json|
-    json["text"].each_line { |line|
-        if line.match(/File|ファイル:/)
-            out = line[/File|ファイル:(.*?)\|/,1]
-            puts out if out != nil
-            if out == '120%"'
-                p line
-            end
-        end
-    }
-}
+jsons.each do |json|
+  json['text'].each_line do |line|
+    next unless line =~ /File|ファイル:/
+    out = line[/File|ファイル:(.*?)\|/, 1]
+    puts out unless out.nil?
+    p line if out == '120%"'
+  end
+end

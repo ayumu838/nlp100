@@ -1,14 +1,12 @@
 require 'json'
 
 jsons = []
-File.open("jawiki-country.json") { |f|
-  f.each_line { |line|
-      jsons << JSON.load(line)
-  }
-}
+File.open('jawiki-country.json') do |f|
+  f.each_line do |line|
+    jsons << JSON.load(line)
+  end
+end
 
-jsons.each { |json|
-    if json["title"] == "イギリス"
-        print json["text"]
-    end
-}
+jsons.each do |json|
+  print json['text'] if json['title'] == 'イギリス'
+end
