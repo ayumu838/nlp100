@@ -13,7 +13,7 @@ jsons.each { |json|
     if matchs != nil
 
         matchs.gsub("@","\n").each_line {|line|
-            val = line[/\={1,}\[{0,}(.*?)\n/,1]
+            val = line[/\={1,}(.*?)\n/,1]
             key = line[/\|(.*?)\=/,1]
             temp[key] = val if key != nil
         }
